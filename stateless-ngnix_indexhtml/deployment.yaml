@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app-stateless1
+  template:
+    metadata:
+      labels:
+        app: app-stateless1
+    spec:
+      containers:
+      - name: app-stateless1
+        image: app-stateless1-nginx
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
